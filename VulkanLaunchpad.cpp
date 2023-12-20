@@ -1312,22 +1312,22 @@ void vklCreateRenderResources(const VklSwapchainConfig &swapchain_config) {
         if ((mSwapchainConfig.swapchainImages[0].colorAttachmentImageDetails.imageHandle != VK_NULL_HANDLE) !=
             (mSwapchainConfig.swapchainImages[i].colorAttachmentImageDetails.imageHandle != VK_NULL_HANDLE)) {
             VKL_EXIT_WITH_ERROR(std::string(
-                                        "If one VklSwapchainFramebufferComposition entry has a valid color image handle set, all other VklSwapchainFramebufferComposition entries must have valid color image handles set, too. However, swapchainImages[0] has a ")
-                                        + ((mSwapchainConfig.swapchainImages[0].colorAttachmentImageDetails.imageHandle !=
-                                        VK_NULL_HANDLE) ? "valid" : "invalid")
-                                        + " handle, while swapchainImages[" + std::to_string(i) + "] has a "
-                                        + ((mSwapchainConfig.swapchainImages[i].colorAttachmentImageDetails.imageHandle !=
-                                        VK_NULL_HANDLE) ? "valid handle" : "invalid handle"));
+                    "If one VklSwapchainFramebufferComposition entry has a valid color image handle set, all other VklSwapchainFramebufferComposition entries must have valid color image handles set, too. However, swapchainImages[0] has a ")
+                                + ((mSwapchainConfig.swapchainImages[0].colorAttachmentImageDetails.imageHandle !=
+                                    VK_NULL_HANDLE) ? "valid" : "invalid")
+                                + " handle, while swapchainImages[" + std::to_string(i) + "] has a "
+                                + ((mSwapchainConfig.swapchainImages[i].colorAttachmentImageDetails.imageHandle !=
+                                    VK_NULL_HANDLE) ? "valid handle" : "invalid handle"));
         }
         if ((mSwapchainConfig.swapchainImages[0].depthAttachmentImageDetails.imageHandle != VK_NULL_HANDLE) !=
             (mSwapchainConfig.swapchainImages[i].depthAttachmentImageDetails.imageHandle != VK_NULL_HANDLE)) {
             VKL_EXIT_WITH_ERROR(std::string(
-                                        "If one VklSwapchainFramebufferComposition entry has a valid depth image handle set, all other VklSwapchainFramebufferComposition entries must have valid depth image handles set, too. However, swapchainImages[0] has a ")
-                                        + ((mSwapchainConfig.swapchainImages[0].depthAttachmentImageDetails.imageHandle !=
-                                        VK_NULL_HANDLE) ? "valid" : "invalid")
-                                        + " handle, while swapchainImages[" + std::to_string(i) + "]  has a "
-                                        + ((mSwapchainConfig.swapchainImages[i].depthAttachmentImageDetails.imageHandle !=
-                                        VK_NULL_HANDLE) ? "valid handle" : "invalid handle"));
+                    "If one VklSwapchainFramebufferComposition entry has a valid depth image handle set, all other VklSwapchainFramebufferComposition entries must have valid depth image handles set, too. However, swapchainImages[0] has a ")
+                                + ((mSwapchainConfig.swapchainImages[0].depthAttachmentImageDetails.imageHandle !=
+                                    VK_NULL_HANDLE) ? "valid" : "invalid")
+                                + " handle, while swapchainImages[" + std::to_string(i) + "]  has a "
+                                + ((mSwapchainConfig.swapchainImages[i].depthAttachmentImageDetails.imageHandle !=
+                                    VK_NULL_HANDLE) ? "valid handle" : "invalid handle"));
         }
         if (attachments_0.size() != attachments_i.size()) {
             VKL_EXIT_WITH_ERROR("attachments_0.size() != attachments_i.size()");
@@ -2383,7 +2383,7 @@ VklGeometryData vklLoadModelGeometry(const std::string &path_to_obj) {
     for (const tinyobj::shape_t &shape: shapes) {
         std::map<std::tuple<int, int, int>, uint32_t> uniqueVertices;
 
-        bool hasVertices = attributes.vertex_weights.empty() == false;
+        bool hasVertices = attributes.vertices.empty() == false;
         bool hasTexCoords = attributes.texcoords.empty() == false;
         bool hasNormals = attributes.normals.empty() == false;
 
